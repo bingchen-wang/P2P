@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "dataset": "atp_w42",
+  "source_run": "ATP_w42_20250919_022806",
+  "source_config": "outputs/ATP_w42_20250919_022806/regression_config.yaml",
+  "environment": {
+    "python": "3.13.2",
+    "numpy": "2.2.5",
+    "cvxpy": "1.7.1",
+    "solver": "OSQP",
+    "solver_version": "1.0.4"
+  },
+  "models": {
+    "lasso": {
+      "status": "optimal",
+      "test_mse": 0.006860746689027135,
+      "test_one_minus_jsd": 0.8762675953429623,
+      "test_emd": 0.04343330565604694,
+      "test_mcpa": 0.85,
+      "nnz": 58,
+      "best_alpha": 0.001623776739188721
+    },
+    "elasticnet": {
+      "status": "optimal",
+      "test_mse": 0.005936344642493959,
+      "test_one_minus_jsd": 0.8814597080096196,
+      "test_emd": 0.03802022806515066,
+      "test_mcpa": 0.9,
+      "nnz": 107,
+      "best_alpha": 0.0069519279617756054,
+      "best_l1_ratio": 0.1
+    }
+  }
+}

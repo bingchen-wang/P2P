@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "dataset": "wvs_gb",
+  "source_run": "WVS_GB_20251116_081710",
+  "source_config": "outputs/WVS_GB_20251116_081710/regression_config.yaml",
+  "environment": {
+    "python": "3.13.2",
+    "numpy": "2.2.5",
+    "cvxpy": "1.7.1",
+    "solver": "OSQP",
+    "solver_version": "1.0.4"
+  },
+  "models": {
+    "lasso": {
+      "status": "optimal",
+      "test_mse": 0.023958884327736674,
+      "test_one_minus_jsd": 0.7451408640002074,
+      "test_emd": 0.12453967728390274,
+      "test_mcpa": 0.5,
+      "nnz": 58,
+      "best_alpha": 10.0
+    },
+    "elasticnet": {
+      "status": "optimal",
+      "test_mse": 0.02393050845697066,
+      "test_one_minus_jsd": 0.7528530352019629,
+      "test_emd": 0.12392482261906299,
+      "test_mcpa": 0.5166666666666667,
+      "nnz": 138,
+      "best_alpha": 0.1274274985703132,
+      "best_l1_ratio": 0.2
+    }
+  }
+}

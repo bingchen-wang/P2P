@@ -219,4 +219,8 @@ __marimo__/
 
 # Project Related
 outputs/
+data/
 docs/build/
+
+# MacOS
+.DS_Store
