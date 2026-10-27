@@ -1,0 +1,12 @@
+extends: regress_fixture.yaml
+
+run:
+  name: fixture_two_wave_panel
+
+panel:
+  target: regress
+  overrides:
+    - run:
+        wave: fixture_wave_1
+    - run:
+        wave: fixture_wave_2

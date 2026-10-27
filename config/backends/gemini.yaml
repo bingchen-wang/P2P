@@ -1,0 +1,29 @@
+# Google Gemini profile. Authentication is read from GEMINI_API_KEY.
+# Gemini models are retired on a published schedule (gemini-2.0-flash, used in
+# the paper, was shut down on 1 June 2026), so the model ID is always explicit.
+# gemini-3.5-flash-lite: generally available, no shutdown date announced
+# (Gemini API deprecations page, checked 4 Oct 2026). Keep max_tokens generous:
+# models that think before answering need room to finish.
+response:
+  type: gemini
+  model_name: gemini-3.5-flash-lite
+  formality: >-
+    Select one listed option. Return only its option label or numeric code,
+    with no explanation.
+  kwargs:
+    temperature: 0
+    max_tokens: 1024
+
+endowment:
+  type: gemini
+  model_name: gemini-3.5-flash-lite
+  kwargs:
+    temperature: 0.9
+    max_tokens: 2048
+
+attribute_learner:
+  type: gemini
+  model_name: gemini-3.5-flash-lite
+  kwargs:
+    temperature: 0
+    max_tokens: 1024

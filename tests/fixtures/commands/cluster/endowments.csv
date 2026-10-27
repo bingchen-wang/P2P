@@ -1,0 +1,5 @@
+eid,endow_text,role,weight,mode,attributes
+agent_code,software developer code computers,proxy,,vanilla,
+agent_tech,technology programmer software code,proxy,,vanilla,
+agent_farm,farmer crops fields rural harvest,proxy,,vanilla,
+agent_rural,rural agriculture crops farm,proxy,,vanilla,

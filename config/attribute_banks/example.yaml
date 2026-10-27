@@ -1,0 +1,15 @@
+templates:
+  core:
+    - core
+  thematic:
+    - preferences
+
+attributes:
+  core:
+    - age
+    - education
+    - location
+  preferences:
+    - risk tolerance
+    - time preference
+    - political orientation

@@ -1,0 +1,20 @@
+response:
+  type: dummy
+  model_name: dummy
+  formality: Return only the selected answer.
+  kwargs:
+    answer_text: Option A
+
+endowment:
+  type: dummy
+  model_name: dummy
+  kwargs:
+    answer_text: >-
+      [{"eid": "fixture_a", "endow_text": "A concise synthetic persona A."},
+      {"eid": "fixture_b", "endow_text": "A concise synthetic persona B."}]
+
+attribute_learner:
+  type: dummy
+  model_name: dummy
+  kwargs:
+    answer_text: age, education

@@ -1,0 +1,92 @@
+{
+  "AMENITY_01": {
+    "A shared garden": 0.44,
+    "A quiet reading room": 0.27,
+    "A night market": 0.29
+  },
+  "AMENITY_02": {
+    "More frequent trams": 0.25,
+    "Protected cycle lanes": 0.45,
+    "Wider footpaths": 0.3
+  },
+  "AMENITY_03": {
+    "Repair cafe": 0.52,
+    "Street festival": 0.25,
+    "Public lecture": 0.23
+  },
+  "AMENITY_04": {
+    "Tool lending": 0.44,
+    "Longer opening hours": 0.27,
+    "Language exchange": 0.29
+  },
+  "AMENITY_05": {
+    "More shade trees": 0.39,
+    "Outdoor tables": 0.27,
+    "A small stage": 0.34
+  },
+  "AMENITY_06": {
+    "Printed noticeboard": 0.43,
+    "Weekly email": 0.34,
+    "Mobile bulletin": 0.23
+  },
+  "AMENITY_07": {
+    "Community sports court": 0.45,
+    "Indoor climbing wall": 0.3,
+    "Board-game lounge": 0.25
+  },
+  "AMENITY_08": {
+    "Kerbside compost bins": 0.53,
+    "Electronics drop-off": 0.18,
+    "Clothing swap shelf": 0.29
+  },
+  "AMENITY_09": {
+    "Mural walk": 0.27,
+    "Light installation": 0.29,
+    "Sculpture garden": 0.44
+  },
+  "AMENITY_10": {
+    "Better lighting": 0.34,
+    "Raised crossings": 0.39,
+    "Speed cameras": 0.27
+  },
+  "AMENITY_11": {
+    "Local produce stall": 0.43,
+    "Hot food vans": 0.34,
+    "Bakery corner": 0.23
+  },
+  "AMENITY_12": {
+    "Coding club": 0.3,
+    "Music lessons": 0.25,
+    "Outdoor skills": 0.45
+  },
+  "AMENITY_13": {
+    "Solar panels": 0.43,
+    "Heat pumps": 0.34,
+    "Better insulation": 0.23
+  },
+  "AMENITY_14": {
+    "Town meeting": 0.44,
+    "Online survey": 0.27,
+    "Street pop-up stand": 0.29
+  },
+  "AMENITY_15": {
+    "Walk-in clinic": 0.27,
+    "Longer pharmacy hours": 0.29,
+    "Fitness classes": 0.44
+  },
+  "AMENITY_16": {
+    "Swimming platform": 0.18,
+    "Boardwalk cafe": 0.29,
+    "Wildlife viewing deck": 0.53
+  },
+  "AMENITY_17": {
+    "Camping gear": 0.43,
+    "Musical instruments": 0.34,
+    "Sewing machines": 0.23
+  },
+  "AMENITY_18": {
+    "Night bus": 0.39,
+    "Late pharmacy": 0.18,
+    "Late study hall": 0.43
+  }
+}

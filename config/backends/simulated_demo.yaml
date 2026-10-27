@@ -1,0 +1,414 @@
+# Simulated respondents for the offline Studio demo: deterministic rules,
+# not a language model. Written by examples/studio_demo/build_demo_files.py.
+response:
+  type: simulated
+  model_name: simulated-respondents
+  kwargs:
+    seed: 101
+    noise: 0.6
+    world:
+      setting: the fictional town of Linden
+      attributes:
+        everyday priority:
+          relevance: survey
+          values:
+            green and outdoors:
+              weight: 2.5
+              prefers:
+              - A shared garden
+              - Protected cycle lanes
+              - Repair cafe
+              - Tool lending
+              - More shade trees
+              - Printed noticeboard
+              - Community sports court
+              - Kerbside compost bins
+              - Sculpture garden
+              - Raised crossings
+              - Local produce stall
+              - Outdoor skills
+              - Solar panels
+              - Town meeting
+              - Fitness classes
+              - Wildlife viewing deck
+              - Camping gear
+              - Late study hall
+              describe: gardens, cycles and wants more shade and wildlife
+            evenings and culture:
+              weight: 2.5
+              prefers:
+              - A night market
+              - More frequent trams
+              - Street festival
+              - Language exchange
+              - A small stage
+              - Weekly email
+              - Board-game lounge
+              - Clothing swap shelf
+              - Light installation
+              - Better lighting
+              - Hot food vans
+              - Music lessons
+              - Heat pumps
+              - Street pop-up stand
+              - Longer pharmacy hours
+              - Boardwalk cafe
+              - Musical instruments
+              - Night bus
+              describe: out most evenings at markets, gigs and festivals
+            convenience and efficiency:
+              weight: 2.5
+              prefers:
+              - A quiet reading room
+              - Wider footpaths
+              - Public lecture
+              - Longer opening hours
+              - Outdoor tables
+              - Mobile bulletin
+              - Indoor climbing wall
+              - Electronics drop-off
+              - Mural walk
+              - Speed cameras
+              - Bakery corner
+              - Coding club
+              - Better insulation
+              - Online survey
+              - Walk-in clinic
+              - Swimming platform
+              - Sewing machines
+              - Late pharmacy
+              describe: values services that save time and work reliably
+        age group:
+          values:
+            20s:
+              weight: 0.8
+              prefers:
+              - Board-game lounge
+              - Music lessons
+              - Late study hall
+              - Street festival
+              describe: early in a career
+            40s:
+              weight: 0.8
+              prefers:
+              - Outdoor tables
+              - Weekly email
+              describe: mid-career
+            60s and over:
+              weight: 0.8
+              prefers:
+              - More shade trees
+              - Printed noticeboard
+              - Walk-in clinic
+              - Town meeting
+              describe: recently retired
+        travel to work:
+          values:
+            cycles:
+              weight: 0.8
+              prefers:
+              - Protected cycle lanes
+              - Raised crossings
+              describe: rides to work most days
+            takes the tram:
+              weight: 0.8
+              prefers:
+              - More frequent trams
+              - Night bus
+              describe: relies on public transport
+            drives:
+              weight: 0.8
+              prefers:
+              - Wider footpaths
+              - Speed cameras
+              describe: commutes by car
+        household:
+          values:
+            lives alone:
+              weight: 0.8
+              prefers:
+              - Language exchange
+              - Late pharmacy
+              describe: a one-person household
+            family with children:
+              weight: 0.8
+              prefers:
+              - Outdoor skills
+              - Community sports court
+              - Swimming platform
+              describe: two school-age children
+  formality: Select one listed option. Return only its option text.
+endowment:
+  type: simulated
+  model_name: simulated-respondents
+  kwargs:
+    seed: 101
+    noise: 0.6
+    world:
+      setting: the fictional town of Linden
+      attributes:
+        everyday priority:
+          relevance: survey
+          values:
+            green and outdoors:
+              weight: 2.5
+              prefers:
+              - A shared garden
+              - Protected cycle lanes
+              - Repair cafe
+              - Tool lending
+              - More shade trees
+              - Printed noticeboard
+              - Community sports court
+              - Kerbside compost bins
+              - Sculpture garden
+              - Raised crossings
+              - Local produce stall
+              - Outdoor skills
+              - Solar panels
+              - Town meeting
+              - Fitness classes
+              - Wildlife viewing deck
+              - Camping gear
+              - Late study hall
+              describe: gardens, cycles and wants more shade and wildlife
+            evenings and culture:
+              weight: 2.5
+              prefers:
+              - A night market
+              - More frequent trams
+              - Street festival
+              - Language exchange
+              - A small stage
+              - Weekly email
+              - Board-game lounge
+              - Clothing swap shelf
+              - Light installation
+              - Better lighting
+              - Hot food vans
+              - Music lessons
+              - Heat pumps
+              - Street pop-up stand
+              - Longer pharmacy hours
+              - Boardwalk cafe
+              - Musical instruments
+              - Night bus
+              describe: out most evenings at markets, gigs and festivals
+            convenience and efficiency:
+              weight: 2.5
+              prefers:
+              - A quiet reading room
+              - Wider footpaths
+              - Public lecture
+              - Longer opening hours
+              - Outdoor tables
+              - Mobile bulletin
+              - Indoor climbing wall
+              - Electronics drop-off
+              - Mural walk
+              - Speed cameras
+              - Bakery corner
+              - Coding club
+              - Better insulation
+              - Online survey
+              - Walk-in clinic
+              - Swimming platform
+              - Sewing machines
+              - Late pharmacy
+              describe: values services that save time and work reliably
+        age group:
+          values:
+            20s:
+              weight: 0.8
+              prefers:
+              - Board-game lounge
+              - Music lessons
+              - Late study hall
+              - Street festival
+              describe: early in a career
+            40s:
+              weight: 0.8
+              prefers:
+              - Outdoor tables
+              - Weekly email
+              describe: mid-career
+            60s and over:
+              weight: 0.8
+              prefers:
+              - More shade trees
+              - Printed noticeboard
+              - Walk-in clinic
+              - Town meeting
+              describe: recently retired
+        travel to work:
+          values:
+            cycles:
+              weight: 0.8
+              prefers:
+              - Protected cycle lanes
+              - Raised crossings
+              describe: rides to work most days
+            takes the tram:
+              weight: 0.8
+              prefers:
+              - More frequent trams
+              - Night bus
+              describe: relies on public transport
+            drives:
+              weight: 0.8
+              prefers:
+              - Wider footpaths
+              - Speed cameras
+              describe: commutes by car
+        household:
+          values:
+            lives alone:
+              weight: 0.8
+              prefers:
+              - Language exchange
+              - Late pharmacy
+              describe: a one-person household
+            family with children:
+              weight: 0.8
+              prefers:
+              - Outdoor skills
+              - Community sports court
+              - Swimming platform
+              describe: two school-age children
+attribute_learner:
+  type: simulated
+  model_name: simulated-respondents
+  kwargs:
+    seed: 101
+    noise: 0.6
+    world:
+      setting: the fictional town of Linden
+      attributes:
+        everyday priority:
+          relevance: survey
+          values:
+            green and outdoors:
+              weight: 2.5
+              prefers:
+              - A shared garden
+              - Protected cycle lanes
+              - Repair cafe
+              - Tool lending
+              - More shade trees
+              - Printed noticeboard
+              - Community sports court
+              - Kerbside compost bins
+              - Sculpture garden
+              - Raised crossings
+              - Local produce stall
+              - Outdoor skills
+              - Solar panels
+              - Town meeting
+              - Fitness classes
+              - Wildlife viewing deck
+              - Camping gear
+              - Late study hall
+              describe: gardens, cycles and wants more shade and wildlife
+            evenings and culture:
+              weight: 2.5
+              prefers:
+              - A night market
+              - More frequent trams
+              - Street festival
+              - Language exchange
+              - A small stage
+              - Weekly email
+              - Board-game lounge
+              - Clothing swap shelf
+              - Light installation
+              - Better lighting
+              - Hot food vans
+              - Music lessons
+              - Heat pumps
+              - Street pop-up stand
+              - Longer pharmacy hours
+              - Boardwalk cafe
+              - Musical instruments
+              - Night bus
+              describe: out most evenings at markets, gigs and festivals
+            convenience and efficiency:
+              weight: 2.5
+              prefers:
+              - A quiet reading room
+              - Wider footpaths
+              - Public lecture
+              - Longer opening hours
+              - Outdoor tables
+              - Mobile bulletin
+              - Indoor climbing wall
+              - Electronics drop-off
+              - Mural walk
+              - Speed cameras
+              - Bakery corner
+              - Coding club
+              - Better insulation
+              - Online survey
+              - Walk-in clinic
+              - Swimming platform
+              - Sewing machines
+              - Late pharmacy
+              describe: values services that save time and work reliably
+        age group:
+          values:
+            20s:
+              weight: 0.8
+              prefers:
+              - Board-game lounge
+              - Music lessons
+              - Late study hall
+              - Street festival
+              describe: early in a career
+            40s:
+              weight: 0.8
+              prefers:
+              - Outdoor tables
+              - Weekly email
+              describe: mid-career
+            60s and over:
+              weight: 0.8
+              prefers:
+              - More shade trees
+              - Printed noticeboard
+              - Walk-in clinic
+              - Town meeting
+              describe: recently retired
+        travel to work:
+          values:
+            cycles:
+              weight: 0.8
+              prefers:
+              - Protected cycle lanes
+              - Raised crossings
+              describe: rides to work most days
+            takes the tram:
+              weight: 0.8
+              prefers:
+              - More frequent trams
+              - Night bus
+              describe: relies on public transport
+            drives:
+              weight: 0.8
+              prefers:
+              - Wider footpaths
+              - Speed cameras
+              describe: commutes by car
+        household:
+          values:
+            lives alone:
+              weight: 0.8
+              prefers:
+              - Language exchange
+              - Late pharmacy
+              describe: a one-person household
+            family with children:
+              weight: 0.8
+              prefers:
+              - Outdoor skills
+              - Community sports court
+              - Swimming platform
+              describe: two school-age children

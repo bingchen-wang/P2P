@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "summary": [
+    {
+      "method": "p2p",
+      "wave": "W42",
+      "model": "lasso",
+      "split": "test",
+      "metric": "mse",
+      "unit": "binary_option",
+      "prediction_policy": "raw",
+      "center": 2.0,
+      "spread": 1.0,
+      "n": 3,
+      "missing_count": 0,
+      "estimand": "pooled_run"
+    },
+    {
+      "method": "p2p",
+      "wave": "W42",
+      "model": "lasso",
+      "split": "test",
+      "metric": "one_minus_jsd",
+      "unit": "question",
+      "prediction_policy": "clip_and_normalize",
+      "center": 0.9,
+      "spread": 0.09999999999999998,
+      "n": 3,
+      "missing_count": 0,
+      "estimand": "pooled_run"
+    }
+  ]
+}

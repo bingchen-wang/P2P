@@ -1,0 +1,50 @@
+metadata:
+  name: legacy_ablation
+  description: Legacy two-point generation-budget ablation
+  seed: 101
+
+paths:
+  survey_csv: data/survey.csv
+  survey_yaml: data/survey_schema.yaml
+  attribute_bank: data/attribute_bank.yaml
+  aggregate_json: data/target.json
+
+agent:
+  type: dummy
+  model_name: dummy
+  formality: Return only the selected answer.
+  kwargs: {}
+
+endowment_model:
+  backend_type: dummy
+  model_name: dummy
+
+attribute_learner:
+  backend_type: dummy
+  model_name: dummy
+
+generation:
+  target_n: 10
+  initial_n: 2
+  num_update_steps: 1
+  parallel: false
+  max_workers: 1
+  verbose: false
+
+elasticnet:
+  alpha_expr: "np.logspace(-5, 1, 20)"
+  l1_ratio_expr: "np.linspace(0.1, 1, 10)"
+  max_iter: 10000
+
+split_settings:
+  train_val_split:
+    - train
+    - valid
+  test_split: test
+
+runner:
+  over: generation.target_n
+  values:
+    - 10
+    - 20
+  repeats: 1

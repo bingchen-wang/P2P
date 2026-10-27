@@ -1,0 +1,4 @@
+id,question,option_mapping,split
+Q1,Choose option A or B.,"{'A': 'Option A', 'B': 'Option B'}",train
+Q2,Choose option A or B.,"{'A': 'Option A', 'B': 'Option B'}",valid
+Q3,Choose option A or B.,"{'A': 'Option A', 'B': 'Option B'}",test

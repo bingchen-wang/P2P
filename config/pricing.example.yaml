@@ -1,0 +1,8 @@
+# Copy this file to a user-owned location and replace these illustrative
+# values with the provider's current published per-million-token prices.
+# P2P deliberately does not ship a mutable "current price" table.
+models:
+  your-model-name:
+    input_per_million_usd: 0.0
+    output_per_million_usd: 0.0
+    cached_input_per_million_usd: 0.0

@@ -1,0 +1,44 @@
+run:
+  name: fixture_aggregation
+
+aggregate:
+  runs:
+    - path: r1
+      labels:
+        method: p2p
+        wave: W42
+        model: lasso
+        split: test
+        repeat: 1
+    - path: r2
+      labels:
+        method: p2p
+        wave: W42
+        model: lasso
+        split: test
+        repeat: 2
+    - path: r3
+      labels:
+        method: p2p
+        wave: W42
+        model: lasso
+        split: test
+        repeat: 3
+  group_by: [method, wave, model, split]
+  metrics: [mse, one_minus_jsd]
+  expected:
+    repeats: 3
+    require_complete: true
+    cells:
+      - method: p2p
+        wave: W42
+        model: lasso
+        split: test
+  statistics:
+    center: mean
+    spread: sample_std
+  missing:
+    policy: error
+  export:
+    formats: [csv, json, markdown, latex]
+    precision: 4

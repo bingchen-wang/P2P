@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+type: software
+title: "P2P: Prompts to Proxies"
+abstract: >-
+  P2P reconstructs how a human population answers a survey by building a pool
+  of LLM proxy respondents and weighting them so their combined answers match
+  the population's published answer shares.
+authors:
+  - family-names: Wang
+    given-names: Bingchen
+version: 0.1.0
+date-released: 2026-10-27
+license: MIT
+repository-code: "https://github.com/bingchen-wang/P2P"
+keywords:
+  - large language models
+  - survey research
+  - synthetic respondents
+  - preference reconstruction

@@ -1,0 +1,102 @@
+# A small real pipeline on the fictional Studio demo survey, with a local Ollama
+# model (gemma3:4b) for every Stage-1 role. No network beyond localhost, no cost.
+run:
+  name: ollama_demo_smoke
+  seed: 42
+
+data:
+  survey:
+    source: ../../examples/studio_demo/survey.csv
+    schema: ../../examples/studio_demo/survey.yaml
+  target: ../../examples/studio_demo/targets.json
+
+generation:
+  mode: active
+  target_n: 5
+  initial_n: 1
+  num_update_steps: 1
+  parallel: false
+  max_workers: 1
+  enable_survey_attributes: true
+  attribute_bank:
+    source: ../../examples/studio_demo/attribute_bank.yaml
+  question_patch:
+    fraction: 0.5
+    top_k: 1
+    min_repeats: 2
+  endowment_model:
+    batch_size: 2
+    delay: 0
+    retry_failed: true
+    max_retries: 1
+    retry_base_delay: 0
+    randomize_attributes: true
+    max_attributes: 10
+
+backend:
+  response:
+    type: ollama
+    model_name: gemma3:4b
+    formality: >-
+      Select one listed option. Return only its option label or numeric code,
+      with no explanation.
+    delay: 0
+    kwargs:
+      base_url: http://127.0.0.1:11434
+      temperature: 0
+      max_tokens: 16
+      timeout: 120
+      think: false
+      keep_alive: 5m
+      options:
+        num_ctx: 2048
+  endowment:
+    type: ollama
+    model_name: gemma3:4b
+    kwargs:
+      base_url: http://127.0.0.1:11434
+      temperature: 0.7
+      max_tokens: 1024
+      timeout: 120
+      think: false
+      keep_alive: 5m
+      options:
+        num_ctx: 2048
+  attribute_learner:
+    type: ollama
+    model_name: gemma3:4b
+    kwargs:
+      base_url: http://127.0.0.1:11434
+      temperature: 0
+      max_tokens: 256
+      timeout: 120
+      think: false
+      keep_alive: 5m
+      options:
+        num_ctx: 2048
+
+model:
+  method: lasso
+  alpha:
+    - 0.01
+  validation:
+    strategy: cv
+    cv_folds: 2
+
+split:
+  train_val:
+    - train
+    - valid
+  test: test
+  use_proxy_only: true
+
+metrics:
+  - mse
+  - one_minus_jsd
+  - emd
+  - mcpa
+
+evaluation:
+  mse_prediction_policy: raw
+  distribution_prediction_policy: clip_and_normalize
+  invalid_distribution: error

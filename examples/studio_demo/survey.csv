@@ -1,0 +1,19 @@
+qid,question,option_mapping,split
+AMENITY_01,Which fictional neighborhood feature should receive priority?,"{'A': 'A shared garden', 'B': 'A quiet reading room', 'C': 'A night market'}",train
+AMENITY_02,Which transit improvement would you choose first?,"{'A': 'More frequent trams', 'B': 'Protected cycle lanes', 'C': 'Wider footpaths'}",train
+AMENITY_03,Which community event sounds most useful?,"{'A': 'Repair cafe', 'B': 'Street festival', 'C': 'Public lecture'}",valid
+AMENITY_04,Which library service should expand?,"{'A': 'Tool lending', 'B': 'Longer opening hours', 'C': 'Language exchange'}",valid
+AMENITY_05,Which park addition would improve everyday use?,"{'A': 'More shade trees', 'B': 'Outdoor tables', 'C': 'A small stage'}",test
+AMENITY_06,Which local information format is easiest to use?,"{'A': 'Printed noticeboard', 'B': 'Weekly email', 'C': 'Mobile bulletin'}",test
+AMENITY_07,Which weekend activity space should open first?,"{'A': 'Community sports court', 'B': 'Indoor climbing wall', 'C': 'Board-game lounge'}",train
+AMENITY_08,Which recycling service is most useful?,"{'A': 'Kerbside compost bins', 'B': 'Electronics drop-off', 'C': 'Clothing swap shelf'}",train
+AMENITY_09,Which public art project should be funded?,"{'A': 'Mural walk', 'B': 'Light installation', 'C': 'Sculpture garden'}",train
+AMENITY_10,Which street safety measure should come first?,"{'A': 'Better lighting', 'B': 'Raised crossings', 'C': 'Speed cameras'}",train
+AMENITY_11,Which food option should the market add?,"{'A': 'Local produce stall', 'B': 'Hot food vans', 'C': 'Bakery corner'}",train
+AMENITY_12,Which youth programme should expand?,"{'A': 'Coding club', 'B': 'Music lessons', 'C': 'Outdoor skills'}",train
+AMENITY_13,Which energy upgrade should the town hall make?,"{'A': 'Solar panels', 'B': 'Heat pumps', 'C': 'Better insulation'}",train
+AMENITY_14,Which way should residents be consulted?,"{'A': 'Town meeting', 'B': 'Online survey', 'C': 'Street pop-up stand'}",valid
+AMENITY_15,Which health service should open locally?,"{'A': 'Walk-in clinic', 'B': 'Longer pharmacy hours', 'C': 'Fitness classes'}",train
+AMENITY_16,Which waterfront change would you choose?,"{'A': 'Swimming platform', 'B': 'Boardwalk cafe', 'C': 'Wildlife viewing deck'}",test
+AMENITY_17,Which shared resource should the library stock?,"{'A': 'Camping gear', 'B': 'Musical instruments', 'C': 'Sewing machines'}",train
+AMENITY_18,Which late-night service matters most?,"{'A': 'Night bus', 'B': 'Late pharmacy', 'C': 'Late study hall'}",test

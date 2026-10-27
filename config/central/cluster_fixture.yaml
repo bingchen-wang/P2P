@@ -1,0 +1,11 @@
+run:
+  name: fixture_offline_cluster
+  seed: 101
+
+data:
+  basis:
+    endowments: ../../tests/fixtures/commands/cluster/endowments.csv
+
+cluster:
+  algorithm: tfidf_kmeans
+  n_clusters: 2

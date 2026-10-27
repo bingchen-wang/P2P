@@ -1,0 +1,15 @@
+# Attributes active generation varies in the simulated Studio demo.
+templates:
+  core:
+  - core
+  thematic:
+  - household
+  - travel
+attributes:
+  core:
+  - everyday priority
+  - age group
+  household:
+  - household
+  travel:
+  - travel to work

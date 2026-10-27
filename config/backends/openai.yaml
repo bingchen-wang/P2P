@@ -1,0 +1,34 @@
+# OpenAI profile. Authentication is read from OPENAI_API_KEY by the OpenAI SDK.
+# gpt-4.1-mini is a non-reasoning chat model (used in the paper's Table 11) and
+# accepts temperature. Newer OpenAI models are reasoning models: they may reject
+# temperature (set it to null) and spend part of max_tokens on reasoning.
+# store: false asks OpenAI not to retain responses; P2P never reads them back.
+response:
+  type: openai
+  model_name: gpt-4.1-mini
+  formality: >-
+    Select one listed option. Return only its option label or numeric code,
+    with no explanation.
+  kwargs:
+    transport: chat_completions
+    store: false
+    temperature: 0
+    max_tokens: 128
+
+endowment:
+  type: openai
+  model_name: gpt-4.1-mini
+  kwargs:
+    transport: chat_completions
+    store: false
+    temperature: 0.9
+    max_tokens: 1024
+
+attribute_learner:
+  type: openai
+  model_name: gpt-4.1-mini
+  kwargs:
+    transport: chat_completions
+    store: false
+    temperature: 0
+    max_tokens: 1024

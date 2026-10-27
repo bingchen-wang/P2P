@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "run_id": "fixture-r0003",
+  "metrics": [
+    {
+      "metric": "mse",
+      "value": 3.0,
+      "split": "test",
+      "model": "lasso",
+      "unit": "binary_option",
+      "prediction_policy": "raw",
+      "qids_requested": 3,
+      "qids_used": 3,
+      "diagnostics": {}
+    },
+    {
+      "metric": "one_minus_jsd",
+      "value": 1.0,
+      "split": "test",
+      "model": "lasso",
+      "unit": "question",
+      "prediction_policy": "clip_and_normalize",
+      "qids_requested": 3,
+      "qids_used": 3,
+      "diagnostics": {
+        "invalid_distribution_policy": "error",
+        "invalid_qids_before_transform": 0,
+        "invalid_qids_after_transform": 0
+      }
+    }
+  ]
+}

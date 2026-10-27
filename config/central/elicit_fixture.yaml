@@ -1,0 +1,4 @@
+extends: pipeline_fixture.yaml
+
+run:
+  name: fixture_standalone_elicit

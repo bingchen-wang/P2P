@@ -1,0 +1,24 @@
+extends: regress_fixture.yaml
+
+run:
+  name: fixture_scientific_simulation
+
+split:
+  use_proxy_only: false
+
+simulation:
+  executor: scientific
+  kind: proxy
+  invokes_generation: false
+  target_source: configured
+  ground_truth:
+    source: random
+    count: 1
+  fraction: 1.0
+  sweep:
+    target: simulate
+    overrides:
+      - simulation:
+          fraction: 0.5
+      - simulation:
+          fraction: 1.0

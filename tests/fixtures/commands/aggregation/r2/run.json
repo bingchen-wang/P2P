@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "run_id": "fixture-r0002",
+  "repeat": 2,
+  "seed": 102,
+  "conditions": {
+    "method": "p2p",
+    "wave": "W42"
+  },
+  "config_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+  "cleaning_policy": "column_drop_v2",
+  "source_artifacts": {
+    "survey": {
+      "path": "/fixtures/survey.csv",
+      "digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+run:
+  name: fixture_active_generate
+  seed: 101
+
+data:
+  survey:
+    source: ../../tests/fixtures/data/survey.csv
+    schema: ../../tests/fixtures/data/survey_schema.yaml
+
+generation:
+  mode: active
+  target_n: 22
+  initial_n: 2
+  num_update_steps: 1
+  parallel: false
+  max_workers: 1
+  verbose: false
+  endowment_model:
+    batch_size: 2
+    delay: 0
+    retry_failed: false
+    randomize_attributes: false
+    max_attributes: 12
+
+backend: ../backends/dummy.yaml

@@ -1,0 +1,30 @@
+experiment:
+  name: legacy_fraction_simulation
+  description: Legacy fraction-sweep fixture
+  seed: 50
+
+paths:
+  survey_csv: data/survey.csv
+  survey_yaml: data/survey_schema.yaml
+  responses_csv: data/responses.csv
+  endowments_csv: data/endowments.csv
+
+lasso:
+  alpha_expr: "np.logspace(-5, 1, 20)"
+  max_iter: 10000
+
+split_settings:
+  use_proxy_only: false
+  train_val_split:
+    - train
+    - valid
+  test_split: test
+
+runner:
+  mode: endowment
+  model: lasso
+  fractions: "np.linspace(0.25, 0.5, 2)"
+  n_repeats: 1
+  seed: 50
+  plot: false
+  verbose: false

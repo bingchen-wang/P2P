@@ -1,0 +1,1 @@
+extends: ../../tests/fixtures/commands/aggregation/aggregate.yaml

@@ -1,0 +1,15 @@
+run:
+  name: fixture_offline_simulation
+  seed: 101
+
+simulation:
+  kind: fraction
+  invokes_generation: false
+  fraction: 0.25
+  sweep:
+    target: simulate
+    overrides:
+      - simulation:
+          fraction: 0.25
+      - simulation:
+          fraction: 0.5

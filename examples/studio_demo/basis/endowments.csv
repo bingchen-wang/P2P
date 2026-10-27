@@ -1,0 +1,16 @@
+eid,endow_text,role,weight,mode,attributes
+green_01,"Lives beside the river park, grows vegetables on an allotment and cycles everywhere.",proxy,,green,everyday priorities
+green_02,A retired science teacher who volunteers at the tree-planting group on Saturdays.,proxy,,green,everyday priorities
+green_03,"Works from home, walks the dog twice a day and wants more shade and wildlife nearby.",proxy,,green,everyday priorities
+green_04,A student who organises the campus repair cafe and avoids buying anything new.,proxy,,green,everyday priorities
+green_05,"Runs a small landscaping business and prefers outdoor, low-energy solutions.",proxy,,green,everyday priorities
+night_01,A nurse on late shifts who values evening services and lively public spaces.,proxy,,night,everyday priorities
+night_02,Plays in a local band and spends most evenings at venues and night markets.,proxy,,night,everyday priorities
+night_03,"Recently moved to town and looks for festivals, clubs and ways to meet people.",proxy,,night,everyday priorities
+night_04,Runs a food truck and wants the town centre busy after dark.,proxy,,night,everyday priorities
+night_05,A graduate student who studies late and enjoys cultural events.,proxy,,night,everyday priorities
+practical_01,"Commutes by car, manages family schedules on a phone and values convenience.",proxy,,practical,everyday priorities
+practical_02,A software developer who prefers digital services and clear online information.,proxy,,practical,everyday priorities
+practical_03,A parent of three who wants services that save time and work reliably.,proxy,,practical,everyday priorities
+practical_04,Works in logistics and judges every proposal by cost and efficiency.,proxy,,practical,everyday priorities
+practical_05,"A small-business owner who wants straightforward, well-maintained facilities.",proxy,,practical,everyday priorities

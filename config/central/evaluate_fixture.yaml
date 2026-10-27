@@ -1,0 +1,28 @@
+run:
+  name: fixture_evaluate
+  seed: 101
+
+data:
+  survey:
+    source: ../../tests/fixtures/data/survey.csv
+    schema: ../../tests/fixtures/data/survey_schema.yaml
+  predictions: ../../tests/fixtures/commands/evaluate/predictions.json
+  target: ../../tests/fixtures/commands/pipeline/target.json
+
+model:
+  method: lasso
+
+split:
+  train_val: [train, valid]
+  test: test
+
+metrics:
+  - mse
+  - one_minus_jsd
+  - emd
+  - mcpa
+
+evaluation:
+  mse_prediction_policy: raw
+  distribution_prediction_policy: clip_and_normalize
+  invalid_distribution: error

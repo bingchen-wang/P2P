@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "model": "lasso",
+  "cleaning_policy": "column_drop_v2",
+  "predictions": {
+    "Q1": {
+      "Option A": 0.55,
+      "Option B": 0.45
+    },
+    "Q2": {
+      "Option A": 0.45,
+      "Option B": 0.55
+    },
+    "Q3": {
+      "Option A": 0.60,
+      "Option B": 0.40
+    }
+  }
+}

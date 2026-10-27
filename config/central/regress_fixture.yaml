@@ -1,0 +1,35 @@
+run:
+  name: fixture_regress
+  seed: 101
+
+data:
+  survey:
+    source: ../../tests/fixtures/data/survey.csv
+    schema: ../../tests/fixtures/data/survey_schema.yaml
+  basis: ../../tests/fixtures/commands/regress/basis
+  target: ../../tests/fixtures/commands/pipeline/target.json
+
+model:
+  method: lasso
+  alpha: [0.01]
+  max_iter: 10000
+  validation:
+    strategy: cv
+    cv_folds: 2
+
+split:
+  train_val:
+    - train
+    - valid
+  test: test
+
+metrics:
+  - mse
+  - one_minus_jsd
+  - emd
+  - mcpa
+
+evaluation:
+  mse_prediction_policy: raw
+  distribution_prediction_policy: clip_and_normalize
+  invalid_distribution: error

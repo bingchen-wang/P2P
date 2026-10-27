@@ -1,0 +1,127 @@
+templates:
+  core:
+    - core
+  thematic:
+    - economics
+    - politics
+    - values_beliefs
+    - cognition_psychology
+    - information
+    - culture_history
+    - behavioral_biases
+  theoretical:
+    - maslow
+    - big_five
+
+attributes:
+  core:
+    - gender
+    - race
+    - ethnicity
+    - urban/rural residency
+    - sexual orientation
+    - education
+    - political leaning/affiliation
+    - income level
+
+  economics:
+    - income level
+    - risk aversion
+    - loss aversion
+    - employment status
+    - occupation
+    - wealth/debt
+    - time preference
+    - housing status
+    - price sensitivity
+    - financial literacy
+
+  politics:
+    - partisan identity
+    - ideological orientation
+    - policy preferences
+    - political efficacy
+    - voting history/turnout propensity
+    - trust in government/institutions
+    - perceived threat
+    - group-based political identity
+    - civic engagement
+
+  values_beliefs:
+    - belief in a just world
+    - authority orientation
+    - individualism/collectivism
+    - egalitarianism
+    - openness to experience
+    - liberty
+    - religiosity
+    - work ethic
+    - nonconformity
+    - trust in others
+    - altruism/spitefulness
+
+  cognition_psychology:
+    - cognitive style
+    - cognitive ability
+    - iconoclastic thinking
+    - extreme response bias
+    - dialectical thinking
+    - disability
+    - locus of control
+    - emotion regulation capacity
+    - decision fatigue
+    - perceived control
+    - framing susceptibility
+    - confirmation bias
+    - narcissistic tendency
+
+  information:
+    - information exposure
+    - digital literacy
+    - misinformation susceptibility
+    - educational background
+    - alma mater
+    - media trust
+    - political echo chamber
+    - information overload
+    - fact exposure
+    - source credibility
+    - source diversity
+
+  culture_history:
+    - personal trauma
+    - collective/historical trauma
+    - cultural norms/taboos
+    - migration history
+    - historical grievance salience
+    - nationalism
+    - social role expectations
+    - religious tradition
+    - language usage
+    - generational cohort identity
+    - MBTI
+
+  behavioral_biases:
+    - loss aversion
+    - status quo bias
+    - extreme response bias
+    - endowment effect
+    - overconfidence bias
+    - present bias
+    - planning fallacy
+    - fairness bias
+    - confirmation bias
+
+  maslow:
+    - physiological needs
+    - safety needs
+    - love and belonging needs
+    - esteem needs
+    - self-actualization needs
+  
+  big_five:
+    - openness to experience
+    - conscientiousness
+    - extraversion
+    - agreeableness
+    - neuroticism

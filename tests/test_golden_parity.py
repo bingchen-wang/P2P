@@ -9,7 +9,7 @@ from typing import Any
 
 import pytest
 
-from p2p.commands import regress
+from tests.parity_runner import run_fixture
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -34,6 +34,10 @@ FIXTURE_FILES = {
         "data/w42/info.csv",
         "data/w42/W42_aggregate_results.json",
         "config/surveys/american_trend_panel.yaml",
+        "tests/fixtures/commands/parity/"
+        "atp_w42_feature_order.json",
+        "tests/fixtures/commands/parity/"
+        "atp_w42_cv_folds.json",
     ),
     "wvs_gb": (
         "outputs/fixtures/wvs_gb/responses.csv",
@@ -42,6 +46,10 @@ FIXTURE_FILES = {
         "data/wvs_gb/info.csv",
         "data/wvs_gb/aggregate_results.json",
         "config/surveys/wvs.yaml",
+        "tests/fixtures/commands/parity/"
+        "wvs_gb_feature_order.json",
+        "tests/fixtures/commands/parity/"
+        "wvs_gb_cv_folds.json",
     ),
 }
 
@@ -50,6 +58,23 @@ def load_golden(dataset: str) -> dict[str, Any]:
     path = GOLDEN_DIR / f"{dataset}.json"
     with path.open(encoding="utf-8") as file:
         return json.load(file)
+
+
+def _skip_without_fixtures(dataset: str) -> list[str]:
+    """Skip when the licensed fixtures for ``dataset`` are not installed."""
+
+    missing = [
+        relative_path
+        for relative_path in FIXTURE_FILES[dataset]
+        if not (PROJECT_ROOT / relative_path).is_file()
+    ]
+    if missing:
+        pytest.skip(
+            "Licensed external fixtures are not distributed with "
+            "the repository: "
+            + ", ".join(missing)
+        )
+    return missing
 
 
 @pytest.mark.parity
@@ -83,17 +108,7 @@ def test_golden_baseline_is_complete(dataset: str) -> None:
 @pytest.mark.parity
 @pytest.mark.parametrize("dataset", DATASETS)
 def test_minimal_fixture_is_complete(dataset: str) -> None:
-    missing = [
-        relative_path
-        for relative_path in FIXTURE_FILES[dataset]
-        if not (PROJECT_ROOT / relative_path).is_file()
-    ]
-
-    if missing:
-        pytest.skip(
-            "Licensed external fixtures are not distributed with the repository: "
-            + ", ".join(missing)
-        )
+    missing = _skip_without_fixtures(dataset)
 
     assert not missing, f"Missing fixture files: {missing}"
 
@@ -104,13 +119,12 @@ def test_regression_matches_golden(
     dataset: str,
     cvxpy_solver: str,
 ) -> None:
-    runner = getattr(regress, "run_fixture", None)
-
-    if not callable(runner):
-        pytest.skip("The regress fixture runner lands in Session 4")
-
+    _skip_without_fixtures(dataset)
     expected = load_golden(dataset)["models"]
-    actual = runner(dataset=dataset, solver=cvxpy_solver)
+    actual = run_fixture(
+        dataset=dataset,
+        solver=cvxpy_solver,
+    )
 
     for model_name in ("lasso", "elasticnet"):
         for metric in REQUIRED_METRICS - {"nnz"}:
@@ -120,4 +134,7 @@ def test_regression_matches_golden(
                 abs=1e-8,
             )
 
-        assert actual[model_name]["nnz"] == expected[model_name]["nnz"]
+        assert (
+            actual[model_name]["nnz"]
+            == expected[model_name]["nnz"]
+        )

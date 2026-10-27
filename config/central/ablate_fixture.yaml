@@ -1,0 +1,14 @@
+extends: regress_fixture.yaml
+
+run:
+  name: fixture_two_point_ablation
+
+ablate:
+  target: regress
+  over: model.alpha
+  values:
+    logspace:
+      - -2
+      - -1
+      - 2
+  repeats: 1

@@ -1,0 +1,30 @@
+run:
+  name: studio_offline_demo
+  run_id: studio-offline-demo-r0001
+  repeat: 1
+  seed: 101
+
+data:
+  survey:
+    source: ../../examples/studio_demo/survey.csv
+    schema: ../../examples/studio_demo/survey.yaml
+  target: ../../examples/studio_demo/targets.json
+  predictions: ../../examples/studio_demo/predictions.json
+
+split:
+  train_val:
+    - train
+    - valid
+  test: test
+  use_proxy_only: true
+
+metrics:
+  - mse
+  - one_minus_jsd
+  - emd
+  - mcpa
+
+evaluation:
+  mse_prediction_policy: raw
+  distribution_prediction_policy: clip_and_normalize
+  invalid_distribution: error

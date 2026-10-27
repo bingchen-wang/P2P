@@ -8,7 +8,7 @@ name = "prompts-to-proxies"
 version = "0.1.0"
 description = "Emulating human preferences through a compact ensemble of LLM proxies."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 license = { text = "MIT" }
 authors = [
     { name = "Bingchen Wang" },
@@ -18,8 +18,6 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Topic :: Scientific/Engineering",
@@ -48,6 +46,9 @@ dependencies = [
 openai = [
     "openai>=1.98,<2",
 ]
+deepseek = [
+    "openai>=1.98,<2",
+]
 gemini = [
     "google-genai>=1.38,<2",
 ]
@@ -56,7 +57,7 @@ dev = [
 ]
 docs = [
     "sphinx>=8.2,<9",
-    "sphinx-rtd-theme>=3,<4",
+    "furo>=2024.8.6",
 ]
 
 
@@ -74,6 +75,10 @@ include = ["p2p", "p2p.*"]
 namespaces = false
 
 
+[tool.setuptools.package-data]
+"p2p.attribute_banks" = ["*.yaml"]
+
+
 [tool.pytest.ini_options]
 minversion = "8.4"
 testpaths = ["tests"]
@@ -81,6 +86,6 @@ addopts = "-ra --strict-config --strict-markers -m \"not paid\""
 xfail_strict = true
 markers = [
     "paid: tests that call metered external APIs",
-    "parity: numerical comparisons against legacy golden results",
+    "parity: numerical comparisons against recorded golden results",
     "integration: offline tests spanning multiple P2P components",
 ]

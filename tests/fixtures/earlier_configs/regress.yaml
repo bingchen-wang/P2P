@@ -1,0 +1,37 @@
+experiment:
+  name: legacy_regress
+  description: Legacy regression fixture
+  seed: 101
+
+paths:
+  survey_csv: data/survey.csv
+  survey_yaml: data/survey_schema.yaml
+  responses_csv: data/responses.csv
+  endowments_csv: data/endowments.csv
+  aggregate_json: data/target.json
+
+lasso:
+  alpha_expr: "np.logspace(-5, 1, 20)"
+  max_iter: 10000
+  validation:
+    strategy: cv
+    cv_folds: 5
+  post_selection_refit: false
+
+elasticnet:
+  alpha_expr: "np.logspace(-5, 1, 20)"
+  l1_ratio_expr: "np.linspace(0.1, 1, 10)"
+  max_iter: 10000
+  validation:
+    strategy: cv
+    cv_folds: 5
+  post_selection_refit: false
+
+split_settings:
+  use_proxy_only: true
+  train_val_split:
+    - train
+    - valid
+  test_split: test
+
+weight_assignment_model: elasticnet

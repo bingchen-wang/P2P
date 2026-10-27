@@ -1,0 +1,272 @@
+/* P2P documentation: the Experiment Studio's look on top of Furo.
+   Colours live in conf.py (light_css_variables / dark_css_variables);
+   this file sets shape, type and the few Studio motifs. */
+
+/* The mosaic spots: the Studio's five colours, which are also the logo's.
+   Decoration only (dots and rules), never text. */
+:root {
+  --p2p-teal: #77b7ae;
+  --p2p-leaf: #9dbe87;
+  --p2p-orange: #ec8062;
+  --p2p-gold: #d7b35f;
+  --p2p-blue: #83a9d7;
+  --p2p-radius: .75rem;
+  --p2p-ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+/* Frame ------------------------------------------------------------------ */
+
+body[data-theme="dark"] .page,
+body:not([data-theme="light"]) .page {
+  background:
+    radial-gradient(circle at 74% -12%, rgba(131, 169, 215, .05), transparent 30rem),
+    radial-gradient(circle at 18% 110%, rgba(157, 190, 135, .04), transparent 32rem);
+}
+@media (prefers-color-scheme: light) {
+  body:not([data-theme="dark"]) .page { background: none; }
+}
+body[data-theme="light"] .page { background: none; }
+
+.content { line-height: 1.68; }
+article[role="main"] { padding-top: .5rem; }
+
+/* Headings: serif page titles as in the Studio, quiet sans section titles. */
+h1 {
+  margin-bottom: 1.4rem;
+  font-size: 2.45rem;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  letter-spacing: -.022em;
+  line-height: 1.1;
+}
+h2, h3, h4 {
+  font-family: var(--font-stack);
+  letter-spacing: -.012em;
+}
+h2 {
+  margin-top: 2.6rem;
+  font-size: 1.32rem;
+  font-weight: 650;
+}
+/* A hairline above each section, aligned with the text (Furo pads headings
+   by .5rem on each side for the anchor highlight). */
+h2::before {
+  display: block;
+  height: 1px;
+  margin: 0 .5rem 1.6rem;
+  background: var(--color-background-border);
+  content: "";
+}
+h3 { font-size: 1.08rem; font-weight: 650; }
+h4 { font-size: .98rem; font-weight: 650; }
+
+/* The Studio's eyebrow: a small gradient rule, then a spaced label. */
+.p2p-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin: 1.2rem 0 .6rem;
+  color: var(--color-brand-primary);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.p2p-eyebrow::before {
+  width: 1.5rem;
+  height: 2px;
+  flex: none;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--p2p-teal), var(--p2p-orange));
+  content: "";
+}
+
+/* Links ------------------------------------------------------------------ */
+
+.content a:not(.headerlink):not(.p2p-card) {
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset: .18em;
+  transition: text-decoration-color 180ms var(--p2p-ease);
+}
+.content a:not(.headerlink):not(.p2p-card):hover { text-decoration-color: currentColor; }
+
+/* Sidebar ---------------------------------------------------------------- */
+
+.sidebar-brand { padding: 1.4rem 1rem 1rem; }
+.sidebar-logo-container { margin: 0 auto; }
+.sidebar-logo { max-width: 9.5rem; }
+.sidebar-search-container {
+  margin: 0 .9rem .6rem;
+  border: 1px solid var(--color-sidebar-background-border);
+  border-radius: .65rem;
+  overflow: hidden;
+}
+.sidebar-search { border: 0; }
+.sidebar-tree .caption,
+.sidebar-tree :not(.caption) > .caption-text {
+  color: var(--color-foreground-muted);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.sidebar-tree .reference {
+  margin: 1px .5rem;
+  padding-left: calc(var(--sidebar-item-spacing-horizontal) - .5rem);
+  border-radius: .55rem;
+  transition: background 180ms var(--p2p-ease), color 180ms var(--p2p-ease);
+}
+.sidebar-tree .current-page > .reference {
+  color: var(--color-brand-primary);
+  background: var(--color-background-hover);
+  font-weight: 600;
+}
+
+/* Reading surfaces: code, tables, notes ---------------------------------- */
+
+div.highlight,
+.highlight pre {
+  border-radius: var(--p2p-radius);
+  background: var(--color-code-background) !important;
+}
+div[class*="highlight-"] {
+  border: 1px solid var(--color-background-border);
+  border-radius: var(--p2p-radius);
+  overflow: hidden;
+}
+.highlight pre { padding: .95rem 1.1rem; font-size: .82rem; line-height: 1.6; }
+code.literal {
+  padding: .08em .34em;
+  border: 1px solid var(--color-background-border);
+  border-radius: .35rem;
+  font-size: .84em;
+}
+a code.literal { border-color: transparent; }
+
+.table-wrapper { border: 1px solid var(--color-background-border); border-radius: var(--p2p-radius); }
+table.docutils { border: 0; border-radius: 0; box-shadow: none; }
+table.docutils th {
+  background: var(--color-background-secondary);
+  font-size: .78rem;
+  font-weight: 650;
+  letter-spacing: .02em;
+}
+table.docutils td, table.docutils th { border-color: var(--color-background-border); }
+table.docutils code.literal { font-size: .78em; }
+
+.admonition {
+  border: 1px solid var(--color-background-border);
+  border-left-width: 3px;
+  border-radius: var(--p2p-radius);
+  box-shadow: none;
+}
+
+/* API entries */
+dl.py > dt {
+  border-radius: .5rem;
+  padding: .3rem .55rem;
+  background: var(--color-background-secondary);
+}
+
+/* Landing page ----------------------------------------------------------- */
+
+.p2p-spots { display: flex; gap: .38rem; margin: 1.4rem 0 0; }
+.p2p-spots span { width: .5rem; height: .5rem; border-radius: 50%; }
+.p2p-spots span:nth-child(1) { background: var(--p2p-orange); }
+.p2p-spots span:nth-child(2) { background: var(--p2p-leaf); }
+.p2p-spots span:nth-child(3) { background: var(--p2p-teal); }
+.p2p-spots span:nth-child(4) { background: var(--p2p-gold); }
+.p2p-spots span:nth-child(5) { background: var(--p2p-blue); }
+.p2p-spots + .p2p-eyebrow { margin-top: 1rem; }
+
+.p2p-hero { margin: .4rem 0 2.2rem; }
+.p2p-hero h1 { margin: 0 0 .9rem; font-size: 2.75rem; }
+.p2p-hero .p2p-lede {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--color-foreground-secondary);
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+.p2p-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+.p2p-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .55rem .95rem;
+  border: 1px solid var(--color-background-border);
+  border-radius: .7rem;
+  color: var(--color-foreground-primary) !important;
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background 180ms var(--p2p-ease), border-color 180ms var(--p2p-ease), transform 180ms var(--p2p-ease);
+}
+.p2p-button:hover { border-color: var(--color-foreground-border); background: var(--color-background-hover); transform: translateY(-1px); }
+.p2p-button-primary { border-color: transparent; background: var(--color-foreground-primary); color: var(--color-background-primary) !important; }
+.p2p-button-primary:hover { background: var(--color-foreground-secondary); border-color: transparent; }
+
+.p2p-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
+  gap: .75rem;
+  margin: 1rem 0 2rem;
+}
+.p2p-card {
+  position: relative;
+  display: block;
+  padding: 1rem 1.05rem 1.05rem;
+  border: 1px solid var(--color-background-border);
+  border-radius: var(--p2p-radius);
+  background: var(--p2p-card-background);
+  color: inherit !important;
+  text-decoration: none !important;
+  transition: border-color 180ms var(--p2p-ease), transform 180ms var(--p2p-ease), background 180ms var(--p2p-ease);
+}
+.p2p-card:hover { border-color: var(--color-foreground-border); background: var(--color-background-hover); transform: translateY(-2px); }
+.p2p-card .p2p-card-step {
+  display: block;
+  margin-bottom: .45rem;
+  color: var(--color-foreground-muted);
+  font-family: var(--font-stack--monospace);
+  font-size: .7rem;
+}
+.p2p-card strong { display: block; margin-bottom: .25rem; font-size: .98rem; font-weight: 650; }
+.p2p-card span.p2p-card-copy { display: block; color: var(--color-foreground-secondary); font-size: .86rem; line-height: 1.5; }
+.p2p-card::after {
+  position: absolute;
+  top: 1.05rem;
+  right: 1rem;
+  width: .32rem;
+  height: .32rem;
+  border-radius: 50%;
+  background: var(--p2p-spot, var(--p2p-orange));
+  content: "";
+  opacity: 0;
+  transform: scale(.6);
+  transition: opacity 180ms var(--p2p-ease), transform 180ms var(--p2p-ease);
+}
+.p2p-card:hover::after { opacity: 1; transform: scale(1); }
+/* Each card lights its own spot, in mosaic order. */
+.p2p-card:nth-child(5n+1) { --p2p-spot: var(--p2p-orange); }
+.p2p-card:nth-child(5n+2) { --p2p-spot: var(--p2p-leaf); }
+.p2p-card:nth-child(5n+3) { --p2p-spot: var(--p2p-teal); }
+.p2p-card:nth-child(5n+4) { --p2p-spot: var(--p2p-gold); }
+.p2p-card:nth-child(5n+5) { --p2p-spot: var(--p2p-blue); }
+
+@media (max-width: 40em) {
+  h1 { font-size: 2rem; }
+  .p2p-hero h1 { font-size: 2.2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .p2p-card, .p2p-button { transition: none; }
+  .p2p-card:hover, .p2p-button:hover { transform: none; }
+}
+
+/* The docs write shell commands as ``console`` blocks without prompts, which
+   Pygments colours as program output; show them as ordinary code. */
+.highlight .go { color: var(--color-code-foreground); }
+
+/* Definition lists (Dock sections, CLI commands) */
+dl.simple > dt, dl:not([class]) > dt, dl.docutils > dt { font-weight: 650; }
+dl:not(.py) > dd { margin-left: 1.25rem; color: var(--color-foreground-secondary); }

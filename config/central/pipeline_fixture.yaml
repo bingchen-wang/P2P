@@ -1,0 +1,56 @@
+run:
+  name: fixture_vanilla_pipeline
+  seed: 101
+
+data:
+  survey:
+    source: ../../tests/fixtures/data/survey.csv
+    schema: ../../tests/fixtures/data/survey_schema.yaml
+  target: ../../tests/fixtures/commands/pipeline/target.json
+
+generation:
+  mode: vanilla
+  target_n: 2
+  batch_size: 2
+  delay: 0
+  retry_failed: false
+  max_retries: 1
+  retry_base_delay: 0
+
+backend:
+  response:
+    type: dummy
+    model_name: dummy
+    formality: Return only the selected answer.
+    kwargs:
+      answer_text: Option A
+  endowment:
+    type: dummy
+    model_name: dummy
+    kwargs:
+      answer_text: >-
+        [{"eid": "fixture_a", "endow_text": "Synthetic fixture agent A"},
+        {"eid": "fixture_b", "endow_text": "Synthetic fixture agent B"}]
+
+model:
+  method: lasso
+  alpha: [0.01]
+  validation:
+    strategy: cv
+    cv_folds: 2
+
+split:
+  train_val: [train, valid]
+  test: test
+  use_proxy_only: true
+
+metrics:
+  - mse
+  - one_minus_jsd
+  - emd
+  - mcpa
+
+evaluation:
+  mse_prediction_policy: raw
+  distribution_prediction_policy: clip_and_normalize
+  invalid_distribution: error

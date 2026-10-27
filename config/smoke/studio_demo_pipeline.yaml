@@ -1,0 +1,72 @@
+# Offline Studio demo of the whole pipeline. Stage 1 generates synthetic
+# residents of a fictional town with P2P's active generation and asks them the
+# survey; Stage 2 fits a constrained lasso. Stage 1 uses the rule-based
+# `simulated` backend (config/backends/simulated_demo.yaml): deterministic
+# rules, not a language model. No network, no credentials, no cost.
+run:
+  name: studio_demo_pipeline
+  run_id: studio-demo-pipeline-r0001
+  repeat: 1
+  seed: 101
+  conditions:
+    dataset: studio_demo
+    configuration: mass_penalty
+
+data:
+  survey:
+    source: ../../examples/studio_demo/survey.csv
+    schema: ../../examples/studio_demo/survey.yaml
+  target: ../../examples/studio_demo/targets.json
+
+generation:
+  mode: active
+  target_n: 60
+  initial_n: 5
+  num_update_steps: 4
+  parallel: false
+  max_workers: 1
+  enable_survey_attributes: true
+  attribute_bank:
+    source: ../../examples/studio_demo/attribute_bank.yaml
+  question_patch:
+    fraction: 0.5
+    top_k: 2
+    min_repeats: 2
+  endowment_model:
+    batch_size: 5
+    delay: 0
+    retry_failed: true
+    max_retries: 1
+    retry_base_delay: 0
+    randomize_attributes: true
+    max_attributes: 10
+
+backend:
+  profile: ../backends/simulated_demo.yaml
+
+model:
+  method: lasso
+  alpha:
+    logspace: [-5, 5, 30]
+  validation:
+    strategy: cv
+    cv_folds: 5
+
+split:
+  train_val:
+    - train
+    - valid
+  test: test
+  use_proxy_only: true
+
+metrics:
+  - mse
+  - distribution_mse
+  - one_minus_jsd
+  - emd
+  - mcpa
+
+evaluation:
+  mse_prediction_policy: raw
+  distribution_prediction_policy: clip_and_normalize
+  invalid_distribution: error
